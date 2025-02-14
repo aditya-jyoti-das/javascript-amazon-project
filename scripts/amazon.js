@@ -1,6 +1,26 @@
+import { cartDict as cartDict } from './cart.js';
+import { products as products } from '../data/products.js';
+
+
 let countAddToCartProduct = document.querySelector('.cart-quantity');
+
 renderingProduct();
+
 AddToCartFun();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function AddToCartFun() {
@@ -22,7 +42,6 @@ function AddToCartFun() {
   });
 
 }
-
 function renderingProduct() {
 
   let productContainers = ``;

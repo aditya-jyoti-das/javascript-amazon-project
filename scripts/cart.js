@@ -1,1 +1,1 @@
-let cartDict = {}
+export let cartDict = {}
