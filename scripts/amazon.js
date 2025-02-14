@@ -6,14 +6,6 @@ renderingProduct();
 AddToCartFun();
 
 
-
-
-
-
-
-
-
-
 function renderingProduct() {
 
   let productContainers = ``;
@@ -36,7 +28,7 @@ function renderingProduct() {
         </div>
 
         <div class="product-price">
-          $${numeral(prodObj.priceCents / 100).format('0.00')}
+          $${(prodObj.priceCents / 100).toFixed(2)}
         </div>
 
         <div class="product-quantity-container">
