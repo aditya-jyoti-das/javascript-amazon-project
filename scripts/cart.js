@@ -1,4 +1,4 @@
-export let cartDict = {
+export let cartDict = JSON.parse(localStorage.getItem('cartDict')) || {
     "e43638ce-6aa0-4b85-b27f-e1d07eb678c6": {
         productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
         quantity: 2
@@ -12,7 +12,9 @@ export let cartDict = {
 
 
 
+
 export let countAddToCartProduct = document.querySelector('.cart-quantity');
+
 
 export function AddToCartFun() {
     document.querySelectorAll('.js-add-to-cart').forEach((button) => {
@@ -41,6 +43,11 @@ export function AddItemToCart(ItemObj) {
     else {
         cartDict[ItemObj.productId] = ItemObj;
     }
+    localStorage.setItem('cartDict', JSON.stringify(cartDict));
+}
+export function RemoveItemFromCart(key) {
+    delete cartDict[key];
+    localStorage.setItem('cartDict', JSON.stringify(cartDict));
 }
 export function totalCount() {
     let totalCount = 0;

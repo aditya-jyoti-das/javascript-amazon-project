@@ -1,10 +1,12 @@
-import { AddToCartFun } from './cart.js';
+import { AddToCartFun, countAddToCartProduct, totalCount } from './cart.js';
 import { products as products } from '../data/products.js';
 
 renderingProduct();
 
 AddToCartFun();
 
+
+countAddToCartProduct.innerHTML = totalCount()
 
 function renderingProduct() {
 

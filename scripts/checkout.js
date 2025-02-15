@@ -5,6 +5,18 @@ updatingReturnToHomeLinkElement();
 
 RenderingCheckout();
 
+export function deletingOrderItem() {
+  document.querySelectorAll('.js-delete-quantity-link')
+    .forEach((dltBtn) => {
+      dltBtn.addEventListener('click', () => {
+        let key = dltBtn.dataset.productId;
+        cartObj.RemoveItemFromCart(key);
+        RenderingCheckout();
+        updatingReturnToHomeLinkElement();
+      });
+    });
+
+}
 export function RenderingCheckout() {
   let orderSummaryHTML = ``;
   let i = 0;
@@ -34,7 +46,7 @@ export function RenderingCheckout() {
                 <span class="update-quantity-link link-primary">
                   Update
                 </span>
-                <span class="delete-quantity-link link-primary">
+                <span class="delete-quantity-link link-primary js-delete-quantity-link " data-product-id=${key}>
                   Delete
                 </span>
               </div>
@@ -83,7 +95,8 @@ export function RenderingCheckout() {
 
   }
   document.querySelector('.order-summary').innerHTML = orderSummaryHTML;
-  // console.log(document.querySelector('.order-summary'))
+  deletingOrderItem();
+
 
 }
 export function findingTheProductDetail(key) {
